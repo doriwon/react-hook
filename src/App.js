@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import UserContextProvider from "./context";
 import Screen from "./Screen";
 
 function App() {
-  const [user] = useState({
-    name: "Son",
-  });
   return (
-    <>
-      <Screen user={user} />
-    </>
+    <UserContextProvider>
+      {/* Screen이 children : Provider로 부터 모든 data를 가져올 수 있음 */}
+      <Screen />
+    </UserContextProvider>
   );
 }
 
