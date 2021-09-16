@@ -1,13 +1,13 @@
 import React from "react";
-import UserContextProvider from "./context";
 import Screen from "./Screen";
+import Lang from "./context";
+import translations from "./translations";
 
 function App() {
   return (
-    <UserContextProvider>
-      {/* Screen이 children : Provider로 부터 모든 data를 가져올 수 있음 */}
+    <Lang defaultLang="en" translations={translations}>
       <Screen />
-    </UserContextProvider>
+    </Lang>
   );
 }
 

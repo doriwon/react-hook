@@ -1,18 +1,14 @@
 import React from "react";
-import { useFns } from "./context";
-import Header from "./Header";
+import { useSetLang, useHT } from "./context";
 
-const Screen = () => {
-  // Screen이 Provider의 children으로 들어와있기 때문에 context.js의 logUserIn 함수를 사용 가능한 것
-  const { logUserIn } = useFns();
+export default () => {
+  const setLang = useSetLang();
+  const ht = useHT();
+
   return (
-    <div>
-      <Header />
-      {/* 해당 페이지에서 사용하지 않지만 내부 컨테이너에서 사용하기 떄문에 props를 전달해줘야 함 */}
-      <h1>first Screen</h1>
-      <button onClick={logUserIn}>Log user in</button>
-    </div>
+    <>
+      <h1>{ht("Hello")}</h1>
+      <button onClick={() => setLang("es")}>{ht("Translate")}</button>
+    </>
   );
 };
-
-export default Screen;
